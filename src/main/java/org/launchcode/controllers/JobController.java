@@ -2,6 +2,7 @@ package org.launchcode.controllers;
 
 import org.launchcode.models.forms.JobForm;
 import org.launchcode.models.data.JobData;
+import org.launchcode.models.Job;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -22,9 +23,11 @@ public class JobController {
     // The detail display for a given Job at URLs like /job?id=17
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(Model model, int id) {
+        System.out.println("\n\n\nHELLO :D\n\n\n");
 
         // TODO #1 - get the Job with the given ID and pass it into the view
-
+        Job aJob = jobData.findById(id);
+        model.addAttribute("job", aJob);
         return "job-detail";
     }
 
@@ -41,7 +44,7 @@ public class JobController {
         // new Job and add it to the jobData data store. Then
         // redirect to the job detail view for the new Job.
 
-        return "";
+        return "redirect:";
 
     }
 }

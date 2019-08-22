@@ -9,21 +9,60 @@
 <div class="container body-content">
 
     <form th:object="${jobForm}" method="post">
-
+    <table>
+        <tr>
         <div class="form-group">
-            <label th:for="name">Name</label>
-            <input th:field="*{name}" />
+            <td><label th:for="name">Name</label></td>
+            <td><input th:field="*{name}" /></td>
             <div th:errors="*{name}"></div>
         </div>
+        </tr>
 
+        <tr>
         <div class="form-group">
-            <label th:for="employerId">Employer</label>
-            <select th:field="*{employerId}">
+            <td><label th:for="employerId">Employer</label></td>
+            <td><select th:field="*{employerId}">
                 <option th:each="employer : *{employers}"
                         th:value="${employer.id}"
                         th:text="${employer.value}"></option>
-            </select>
+            </select></td>
         </div>
+        </tr>
+
+        <tr>
+        <div class="form-group">
+        <td><label th:for="locationId">Location</label></td>
+            <td><select th:field="*{locationId}">
+                <option th:each="location : *{locations}"
+                        th:value="${location.id}"
+                        th:text="${location.value}"></option>
+            </select></td>
+        </div>
+        </tr>
+
+        <tr>
+        <div class="form-group">
+        <td><label th:for="positionTypeId">Position Type</label></td>
+            <td><select th:field="*{positionTypeId}">
+                <option th:each="positionType : *{PositionTypes}"
+                        th:value="${positionType.id}"
+                        th:text="${positionType.value}"></option>
+            </select></td>
+        </div>
+        </tr>
+
+        <tr>
+        <div class="form-group">
+            <td><label th:for="coreCompetencyId">Skill</label></td>
+            <td><select th:field="*{coreCompetencyId}">
+                <option th:each="coreCompetency : *{coreCompetencies}"
+                        th:value="${coreCompetency.id}"
+                        th:text="${coreCompetency.value}"></option>
+            </select></td>
+        </div>
+        </tr>
+    </table>
+
 
         <!-- TODO #5 - Create <select> dropdowns for other job fields -->
 
