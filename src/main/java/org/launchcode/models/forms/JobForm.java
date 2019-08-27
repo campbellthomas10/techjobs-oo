@@ -30,7 +30,8 @@ public class JobForm {
     private int locationId;
 
     @NotNull
-    private int positionTypeId;
+   // @Min(1)
+    private int positionId;
 
     @NotNull
     @Min(1)
@@ -67,6 +68,7 @@ public class JobForm {
 
 
     //ArrayList getters and setters
+    //Employers
     public ArrayList<Employer> getEmployers() {
         return employers;
     }
@@ -74,6 +76,7 @@ public class JobForm {
         this.employers = employers;
     }
 
+    //Locations
     public ArrayList<Location> getLocations() {
         return locations;
     }
@@ -81,6 +84,7 @@ public class JobForm {
         this.locations = locations;
     }
 
+    //Core Competencies
     public ArrayList<CoreCompetency> getCoreCompetencies() {
         return coreCompetencies;
     }
@@ -88,6 +92,7 @@ public class JobForm {
         this.coreCompetencies = coreCompetencies;
     }
 
+    //Position Types
     public ArrayList<PositionType> getPositionTypes() {
         return positionTypes;
     }
@@ -97,6 +102,7 @@ public class JobForm {
 
 
 
+    //Individual attribute getters and setters
     //Name
     public String getName() {
         return name;
@@ -130,10 +136,12 @@ public class JobForm {
     }
 
     //Position Type ID
-    public int getPositionTypeId() {
-        return positionTypeId;
+
+    public int getPositionId() {
+        return positionId;
     }
-    public void getPositionTypeId(int positionTypeId) {
-        this.positionTypeId = positionTypeId;
+
+    public void setPositionId(int positionId) {
+        this.positionId = positionId;
     }
 }
